@@ -1,3 +1,17 @@
+:root {
+  --primary-color: #1A2236;  /* Navy Blue */
+  --accent-color: #FFC857;   /* Gold */
+  --bg-light: #F9F9F9;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+  color: var(--primary-color);
+}
+
 .App {
   text-align: center;
 }
