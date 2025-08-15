@@ -4,6 +4,8 @@ const products = [
     name: "Sample Sardine",
     price: 199,
     img: "https://via.placeholder.com/150?text=Sardine",
+    reviews: [
+      { username: "Amit", text: "Fresh and tasty!", rating: 5 }]
   },
   {
     id: 2,

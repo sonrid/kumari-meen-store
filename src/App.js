@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
@@ -6,23 +6,31 @@ import Checkout from './pages/Checkout';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-import './App.css';
-
-// Main App component
+import './App.css'; 
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const [page, setPage] = useState('shop');  // can be 'shop', 'cart', 'checkout', 'about', 'contact'
+  // Load cart from localStorage initially
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  const [page, setPage] = useState('shop');
+
+  // Save cart to localStorage whenever cart changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product) => {
     setCart(prevCart => {
       const existing = prevCart.find(item => item.id === product.id);
-      if(existing) {
+      if (existing) {
         return prevCart.map(item =>
-          item.id === product.id ? {...item, quantity: item.quantity + 1} : item
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        return [...prevCart, {...product, quantity: 1}];
+        return [...prevCart, { ...product, quantity: 1 }];
       }
     });
   };
