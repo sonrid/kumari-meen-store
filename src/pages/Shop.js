@@ -46,7 +46,7 @@ function Shop({ addToCart }) {
   );
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="container" style={{ padding: '2rem 1rem' }}>
       <h2>Shop Our Dry Fish</h2>
       <input
         type="text"
@@ -55,9 +55,9 @@ function Shop({ addToCart }) {
         onChange={e => setSearch(e.target.value)}
         style={{ marginBottom: '1rem', padding: '0.5rem', width: '200px' }}
       />
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+      <div className="shop-grid">
         {filteredProducts.map(product => (
-          <div key={product.id}>
+          <div key={product.id} className="product-card">
             <ProductCard product={product} onAddToCart={addToCart} />
             <ReviewSection
               reviews={product.reviews || []}

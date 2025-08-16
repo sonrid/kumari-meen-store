@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Container for main content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Shop grid - auto adjusts columns */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* Individual product card styling */
+.product-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Product images scale well */
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* Responsive typography */
+h2, h3, p, button {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* Smaller font sizes on mobile */
+@media (max-width: 600px) {
+  h2, h3, p, button {
+    font-size: 0.9rem;
+  }
+  /* Increase touch targets and spacing for mobile */
+  nav a, header a, button {
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+    display: block;
+    width: 100%;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+  }
+  button {
+    border-radius: 6px;
+  }
+}
